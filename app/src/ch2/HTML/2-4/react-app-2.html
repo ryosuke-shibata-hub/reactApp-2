@@ -17,26 +17,22 @@
   </div>
   <script type="text/babel">
     let dom = document.querySelector("#root")
-    let title = "React Page."
-    let message = "メッセージを表示します。"
-    let content_true = `※これが、trueの時に表示されるメッセージです。ちゃんとひょうじされていますか？`
-    let content_false = `これは、falseの時に表示されます`
-    let flg = false;
+    let title = 'React Page'
+    let message = 'メッセージを表示します'
+
+    let data = [
+      <li className="list-group-item">One</li>,
+      <li className="list-group-item">Two</li>,
+      <li className="list-group-item">Three</li>
+    ]
 
     let el = (
       <div>
         <h4>{title}</h4>
         <h6>{message}</h6>
-        {
-          flg ?
-          <div className="alert alert-primary mt-3">
-            <p>{content_true}</p>
-          </div>
-        :
-          <div className="alert alert-secondary mt-3">
-            <p>{content_false}</p>
-          </div>
-        }
+        <ul className="list-group mt-4">
+          {data}
+        </ul>
       </div>
     )
 

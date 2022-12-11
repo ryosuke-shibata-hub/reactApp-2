@@ -19,27 +19,39 @@
     let dom = document.querySelector("#root")
     let title = "React Page."
     let message = "メッセージを表示します。"
-    let content_true = `※これが、trueの時に表示されるメッセージです。ちゃんとひょうじされていますか？`
-    let content_false = `これは、falseの時に表示されます`
-    let flg = false;
+
+    let data = [
+      {name:'Taro', mail:'taro@yamada', age:45},
+      {name:'Hanako', mail:'hanako@flower', age:37},
+      {name:'Sachiko', mail:'sachiko@happy', age:29},
+      {name:'Jiro', mail:'jiro@change', age:18},
+      {name:'Kumi', mail:'kumi@class', age:56}
+    ]
 
     let el = (
       <div>
         <h4>{title}</h4>
         <h6>{message}</h6>
-        {
-          flg ?
-          <div className="alert alert-primary mt-3">
-            <p>{content_true}</p>
-          </div>
-        :
-          <div className="alert alert-secondary mt-3">
-            <p>{content_false}</p>
-          </div>
-        }
+        <table className="table table-striped mt-4">
+          <thead className="thead-dark">
+            <tr>
+              <th>Name</th>
+              <th>Mail</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((value) => (
+              <tr>
+                <td>{value.name}</td>
+                <td>{value.mail}</td>
+                <td>{value.age}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     )
-
     ReactDOM.render(el, dom)
   </script>
 </body>

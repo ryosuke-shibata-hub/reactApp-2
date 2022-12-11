@@ -19,28 +19,22 @@
     let dom = document.querySelector("#root")
     let title = "React Page."
     let message = "メッセージを表示します。"
-    let content_true = `※これが、trueの時に表示されるメッセージです。ちゃんとひょうじされていますか？`
-    let content_false = `これは、falseの時に表示されます`
-    let flg = false;
 
-    let el = (
-      <div>
-        <h4>{title}</h4>
-        <h6>{message}</h6>
-        {
-          flg ?
-          <div className="alert alert-primary mt-3">
-            <p>{content_true}</p>
-          </div>
-        :
-          <div className="alert alert-secondary mt-3">
-            <p>{content_false}</p>
-          </div>
-        }
-      </div>
-    )
+    var counter = 0
+    setInterval(() => {
+      counter++
 
-    ReactDOM.render(el, dom)
+      let el = (
+        <div>
+          <h4>{title}</h4>
+          <h6>{message}</h6>
+          <h5 className="alert alert-primary">
+            count:{counter}
+          </h5>
+        </div>
+      )
+      ReactDOM.render(el, dom)
+    }, 1000)
   </script>
 </body>
 </html>

@@ -19,27 +19,32 @@
     let dom = document.querySelector("#root")
     let title = "React Page."
     let message = "メッセージを表示します。"
-    let content_true = `※これが、trueの時に表示されるメッセージです。ちゃんとひょうじされていますか？`
-    let content_false = `これは、falseの時に表示されます`
-    let flg = false;
+
+    let data = {
+      url:'https://google.com',
+      title:'Google',
+      caption:'※これは、Googleの検索サイトです'
+    }
 
     let el = (
       <div>
         <h4>{title}</h4>
         <h6>{message}</h6>
-        {
-          flg ?
-          <div className="alert alert-primary mt-3">
-            <p>{content_true}</p>
+        {(() =>
+          <div className="card mt-4">
+            <div className="card-header">
+              {data.title}
+            </div>
+            <div className="card-body">
+              {data.caption}
+            </div>
+            <div className="card-footer">
+              <a href={data.url}>※{data.url}に移動</a>
+            </div>
           </div>
-        :
-          <div className="alert alert-secondary mt-3">
-            <p>{content_false}</p>
-          </div>
-        }
+        )()}
       </div>
     )
-
     ReactDOM.render(el, dom)
   </script>
 </body>
