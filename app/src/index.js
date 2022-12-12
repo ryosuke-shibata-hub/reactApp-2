@@ -7,6 +7,10 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* 3-2 */}
+    {/* <App msg="Hello App."/> */}
+    {/* 3-3 */}
+    {/* <App msg="Hello App."/> */}
     <App />
   </React.StrictMode>
 );
