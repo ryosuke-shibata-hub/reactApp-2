@@ -24,11 +24,11 @@
 // }
 
 // export default App;
-import React from 'react';
+import React, { useState } from 'react';
 import { Component } from "react"
 import './App.css'
 import Rect from './Rect'
-class App extends Component {
+// class App extends Component {
 //   constructor(props) {
 //     super()
 //     this.title = props.title
@@ -355,7 +355,7 @@ class App extends Component {
 //     </div>
 //   }
 
-}
+// }
 //3-4-30,31
 // let data = {
 //   title: 'React-Context',
@@ -412,67 +412,172 @@ class App extends Component {
 
 //3-4-32
 
-let theme = {
-  light: {
-    style: {
-      backgroundColor: '#f0f9ff',
-      color: '#00f'
-    },
-    head: 'bg-primary text-white display-4 mb-4',
-    alert: 'alert alert-primary my-3',
-    text: 'text-primary m-3',
-    foot: 'py-4',
-  },
-  dark: {
-    style: {
-      backgroundColor: '#336',
-      color: '#eef',
-    },
-    head: 'bg-secoundary text-white display-4 mb-4',
-    alert: 'a;ert alert-dark my-3',
-    text: 'text-light m-3',
-    foot: 'py-4',
-  }
+// let theme = {
+//   light: {
+//     style: {
+//       backgroundColor: '#f0f9ff',
+//       color: '#00f'
+//     },
+//     head: 'bg-primary text-white display-4 mb-4',
+//     alert: 'alert alert-primary my-3',
+//     text: 'text-primary m-3',
+//     foot: 'py-4',
+//   },
+//   dark: {
+//     style: {
+//       backgroundColor: '#336',
+//       color: '#eef',
+//     },
+//     head: 'bg-secoundary text-white display-4 mb-4',
+//     alert: 'a;ert alert-dark my-3',
+//     text: 'text-light m-3',
+//     foot: 'py-4',
+//   }
+// }
+
+// const ThemeContext = React.createContext(theme.light)
+
+// class light extends Component{
+//   static contextType = ThemeContext
+
+//   render() {
+//     return <div style={this.context.style}>
+//       <h1 className={this.context.head}>React</h1>
+//       <div className='container'>
+//         <Title value="Content Page" />
+//         <Message value="※これはテーマのサンプルです。" />
+//         <div className={this.context.foot}></div>
+//       </div>
+//     </div>
+//   }
+// }
+
+// class Title extends Component {
+//   static contextType = ThemeContext
+
+//   render() {
+//     return (
+//       <div className={this.context.alert}>
+//         <h2 style={this.context.style}>{this.props.value}</h2>
+//       </div>
+//     )
+//   }
+// }
+
+// class Message extends Component {
+//   static contextType = ThemeContext
+
+//   render() {
+//     return (
+//       <div style={this.context.style}>
+//         <p className={this.context.text}>{this.props.value}</p>
+//       </div>
+//     )
+//   }
+// }
+
+//4-1,4-2
+// function App() {
+  // const [message] = useState("welcome to Hooks!")
+
+  // return (
+  //   <div>
+  //     <h1 className='bg-primary text-white display-4'>React</h1>
+  //     <div className='container'>
+  //       <h4 className='my-3'>Hooks sample</h4>
+  //       <div className='alert alert-primary text-center'>
+  //         <p className='h5'>{message}.</p>
+  //       </div>
+  //     </div>
+  //   </div>
+  // )
+//   const [count, setCount] = useState(0)
+//   const clickFunc = () => {
+//     setCount(count + 1)
+//   }
+
+//   return (
+//     <div>
+//       <h1 className='bg-primary text-white display-4'>React</h1>
+//       <div className='container'>
+//         <h4 className='my-3'>Hook Sample</h4>
+//         <div className='alert alert-primary text-center'>
+//           <p className='h5 mb3'>click: {count} times!</p>
+//           <div>
+//             <button className='btn btn-primary' onClick={clickFunc}>Click me</button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+//4-3
+// function App() {
+//   const [count, setCount] = useState(0)
+//   const [flg, setFlg] = useState(false)
+//   const clickFunc = () => {
+//     setCount(count + 1)
+//   }
+//   const changeFlag = (e) => {
+//     setFlg(e.target.checked)
+//   }
+
+//   return (
+//     <div>
+//       <h1 className='bg-primary text-white display-4'>React</h1>
+//       <div className='container'>
+//         <h4 className='my-3'>Hooks sample</h4>
+//         {flg ?
+//           <div className='alert alert-primary text-center'>
+//             <p className='h5 mb-3'>click: {count} times!</p>
+//             <div>
+//               <button className='btn btn-primary' onClick={clickFunc}>Click me</button>
+//             </div>
+//           </div>
+//           :
+//           <div className='card p-3 border-primary text-center'>
+//             <p className='h5 mb-3 text-left text-primary'>
+//               click: {count} times!
+//             </p>
+//             <div>
+//               <button className='btn btn-primary' onClick={clickFunc}>Click me</button>
+//             </div>
+//           </div>
+//         }
+//         <div className='form-group h6 text-center pt-3'>
+//           <input type='checkbox' className='form-check-input' id='check1' onChange={changeFlag} />
+//           <label className='form-check-label' htmlFor="check1">Change form style</label>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+//4-4
+function AlertMessage() {
+  return <div className='alert alert-primary h5 text-primary'>
+    This is Alert Message
+  </div>
 }
 
-const ThemeContext = React.createContext(theme.light)
+function CardMessage() {
+  return <div className='card p-3 h5 border-primary text-center'>
+    This is Card message
+  </div>
+}
 
-class light extends Component{
-  static contextType = ThemeContext
-
-  render() {
-    return <div style={this.context.style}>
-      <h1 className={this.context.head}>React</h1>
+function App() {
+  return (
+    <div>
+      <h1 className='bg-primary text-white display-4'>React</h1>
       <div className='container'>
-        <Title value="Content Page" />
-        <Message value="※これはテーマのサンプルです。" />
-        <div className={this.context.foot}></div>
+        <h4 className='my-3'>Hooks sample</h4>
+        <AlertMessage />
+        <CardMessage />
       </div>
     </div>
-  }
+  )
 }
 
-class Title extends Component {
-  static contextType = ThemeContext
-
-  render() {
-    return (
-      <div className={this.context.alert}>
-        <h2 style={this.context.style}>{this.props.value}</h2>
-      </div>
-    )
-  }
-}
-
-class Message extends Component {
-  static contextType = ThemeContext
-
-  render() {
-    return (
-      <div style={this.context.style}>
-        <p className={this.context.text}>{this.props.value}</p>
-      </div>
-    )
-  }
-}
-export default light
+export default App
