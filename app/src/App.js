@@ -554,27 +554,60 @@ import Rect from './Rect'
 //   )
 // }
 
-//4-4
-function AlertMessage() {
+//4-4,4-5,4-6,4-7
+function AlertMessage(props) {
+  const data = ["Hello!", "Welcome...", "Good-bye?"]
+
+  const actionAlert = () => {
+    const re = data[Math.floor(Math.random() * data.length)]
+    props.setAlert('message: "' + re + '" . ')
+  }
+
   return <div className='alert alert-primary h5 text-primary'>
-    This is Alert Message
+    <h5>{props.alert}</h5>
+    <button onClick={actionAlert} className="btn btn-primary">Click me</button>
   </div>
 }
 
-function CardMessage() {
-  return <div className='card p-3 h5 border-primary text-center'>
-    This is Card message
+function CardMessage(props) {
+  const [count, setCount] = useState(0)
+
+  const actionCard = () => {
+    setCount(count + 1)
+    props.setCard("card counter: " + count + "count.")
+  }
+  return <div className='card p-3 h5 border-dark text-center'>
+    <h5>{props.card}</h5>
+    <button onClick={actionCard} className="btn btn-secondary">Click me</button>
   </div>
 }
 
 function App() {
+  // const [msg, setMsg] = useState("This is sample message")
+  const [alert, setAlert] = useState("This is alert message")
+  const [card, setCard] = useState("This is card message!")
+
+  // const doAction = () => {
+  //   let res = window.prompt('type your name:')
+  //   setMsg("Hello, " + res + "!!")
+  // }
   return (
     <div>
       <h1 className='bg-primary text-white display-4'>React</h1>
       <div className='container'>
         <h4 className='my-3'>Hooks sample</h4>
-        <AlertMessage />
-        <CardMessage />
+        {/* <AlertMessage message={msg} />
+        <CardMessage message={msg} /> */}
+        <AlertMessage alert={alert} setAlert={setAlert} />
+        <CardMessage card={card} setCard={setCard} />
+        <hr />
+        <div className='text-right'>
+          <p>{alert}</p>
+          <p>{card}</p>
+        </div>
+        {/* <div className='text-center'>
+          <button onClick={doAction} className="btn btn-primary">Clickme</button>
+        </div> */}
       </div>
     </div>
   )
